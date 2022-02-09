@@ -9,7 +9,7 @@ def index():
 
 @app.route('/about')
 def about():
-    return '<h2>This is the about page</h2>'
+    return '<h2>This is the about page of the website</h2>'
 
 
 if __name__ == "__main__": # Start the server
