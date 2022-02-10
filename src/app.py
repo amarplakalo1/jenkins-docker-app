@@ -1,49 +1,34 @@
 import os
 from django.shortcuts import render
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, request
 
 
 app = Flask(__name__) # helps determine the root path
 
 @app.route('/') # homepage of website
 def index():
-    menu_choice = 0
-    while menu_choice != 1 and menu_choice != 2:
-        print("Welcome to your to-do list. Pick any option from the menu : ")
-        print("1.Add item: ")
-        print("2.Remove item: ")
-        print("3.View items: ")
-        menu_choice = int(input("Enter menu choice "))
-
-        if menu_choice == 1:
-            return redirect("/addingitem", code=302)
-        elif menu_choice == 2:
-            return redirect("/removingitem", code=302)
-        elif menu_choice == 3:
-            return redirect("/viewitems", code=302)
-
     return 'This is the homepage'
 
 @app.route('/about')
 def about():
+    return "This app allows you to add items to the to-do list, remove them or to view your to-do list"
+@app.route('/addingitem', methods=['POST', 'GET'])
+def adding_item():
+    if request.method == 'POST':
+        item_to_add = request.form["item_to_add_input_field"]
+        list1.append(item_to_add)
     return render_template("adding_item.html")
 
-@app.route('/addingitem')
-def adding_item():
-    for i in range(0,3):
-        list1.append(input("Enter an item in your to-do list: "))
-    return redirect("/", code=302)
-
-@app.route('/removingitem')
+@app.route('/removingitem', methods=['POST', 'GET'])
 def remove_item():
-    item_to_remove_from_list = input("What item do you wish to remove from the list?")
-    list1.remove(item_to_remove_from_list)
-    return redirect("/", code=302)
+    if request.method == 'POST':
+        item_to_remove = request.form["item_to_remove_input_field"]
+        list1.remove(item_to_remove)
+    return render_template("removing_item.html")
 
 @app.route('/viewitems')
 def view_items():
-    print(list1)
-    return redirect("/", code=302)
+    return render_template("viewing_items.html",list1=list1)
 
 @app.route("/health", methods=['GET'])
 def health_ep():
