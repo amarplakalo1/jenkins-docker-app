@@ -6,7 +6,11 @@
 </head>
 
 <body>
-    <input type="text" name="item_to_add">
-    <br>
-    <button>Add item to to-do list</button>
+    <form action="/addingitem" method="post">
+        <input type="text" name="item_to_add_input_field"><br>
+        <button>Add item to to-do list</button>
+    </form>
+    <br><br>
+    <p><a href="/removingitem">Remove an item</a></p>
+    <p><a href="/viewitems">View items</a></p>
 </html>
