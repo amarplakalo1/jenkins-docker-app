@@ -7,7 +7,7 @@ app = Flask(__name__) # helps determine the root path
 
 @app.route('/') # homepage of website
 def index():
-    return 'This is the homepage'
+    return render_template("homepage.html")
 
 @app.route('/about')
 def about():
