@@ -2,15 +2,26 @@
 <html>
 
 <head>
-    <h1>Welome to the to-do list!</h1>
+    <style>
+        .div_for_removing_item_contents
+        {
+            position:relative;
+            left:600px;
+        }
+    </style>
 </head>
 
 <body>
-    <form action="/removingitem" method="post">
-        <input type="text" name="item_to_remove_input_field"><br>
-        <button>Remove item from to-do list</button>
-    </form>
-    <br><br>
-    <p><a href="/addingitem">Add an item</a></p>
-    <p><a href="/viewitems">View items</a></p>
+    <div class = "div_for_removing_item_contents">
+        <h1>Removing Items From To-Do List</h1>
+        <form action="/removingitem" method="post">
+            <input type="text" name="item_to_remove_input_field"><br>
+            <button>Remove item from to-do list</button>
+        </form>
+        <br><br>
+        <p><a href="/addingitem">Add an item</a></p>
+        <p><a href="/viewitems">View items</a></p>
+        <p><a href="/">Back to homepage</a></p>
+    </div>
+</body>
 </html>
