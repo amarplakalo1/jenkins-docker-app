@@ -8,6 +8,19 @@
             position:relative;
             left:600px;
         }
+
+        .remove_btn_class
+        {
+            position:relative;
+            top:20px;
+        }
+
+        .remove_btn
+        {
+            background-color: darkslategray;
+            color:white;
+            border-radius:7px;
+        }
     </style>
 </head>
 
@@ -16,7 +29,9 @@
         <h1>Removing Items From To-Do List</h1>
         <form action="/removingitem" method="post">
             <input type="text" name="item_to_remove_input_field"><br>
-            <button>Remove item from to-do list</button>
+            <div class="remove_btn_class">
+                <button class="remove_btn">Remove item from to-do list</button>
+            </div>
         </form>
         <br><br>
         <p><a href="/addingitem">Add an item</a></p>
