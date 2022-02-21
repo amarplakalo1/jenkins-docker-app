@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        .input_field_for_adding_item_class
+        {
+            font-size:30px;
+            border-radius:15px;
+            width:350px;
+        }
+
+        .contents_on_screen
+        {
+            position:relative;
+            left:600px;
+        }
+
+        .div_for_viewing_and_removing_items_contents
+        {
+            margin-left:32px;
+        }
+
+        body
+        {
+            background-color: #ADD8E6;
+        }
+
+        td
+        {
+            color:blue;
+        }
+
+        .to_do_list_heading
+        {
+            font-size: 45px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-left:-110px;
+            color:white;
+        }
+        
+        .add_item_btn
+        {
+            background-color:darkslategray;
+            color:white;
+            border-radius:7px;
+            height:30px;
+            width:360px;
+        }
+
+        .add_btn_and_input_field_class
+        {
+            margin-left:-30px;
+        }
+
+        input[name=item_to_remove_input_field]
+        {
+            font-size: 20px;
+        }
+
+        .trash_button
+        {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="contents_on_screen">
+        <h1 class = "to_do_list_heading">Welome to the to-do list!</h1>
+        <br><br>
+        <form action="/" method="post">
+            <div class = "add_btn_and_input_field_class">
+            <input class="input_field_for_adding_item_class" type="text" name="item_to_add_input_field" placeholder="Item that you wish to add"><br><br>
+            <button class = "add_item_btn">Add item to to-do list</button>
+            </div>
+        </form>
+        <br><br>
+
+        <div class="div_for_viewing_and_removing_items_contents">
+            <table>
+                {% for item in list1 %}
+                <tr>
+                    <form action="/removingitem" method ="post">
+                        <td><input type="text" name="item_to_remove_input_field" value="{{item}}"> &nbsp;
+                        <button class = "trash_button"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </form>
+                </tr>
+                {% endfor %}
+                </table>
+            <br><br>
+        </div>
+
+    </div>
+</body>
+</html>
